@@ -70,7 +70,7 @@ namespace ros_visualizer
         // Geometry Objects
         VisType TYPE_CURVE = {"curve", visualization_msgs::Marker::LINE_STRIP, STYLE_CURVE};
         VisType TYPE_FACET = {"facet", visualization_msgs::Marker::TRIANGLE_LIST, STYLE_FACET};
-        VisType TYPE_MESH =  {"mesh", visualization_msgs::Marker::LINE_LIST, STYLE_MESH};
+        VisType TYPE_MESH = {"mesh", visualization_msgs::Marker::LINE_LIST, STYLE_MESH};
         // Scatters
         VisType TYPE_SCATTER = {"scatter", visualization_msgs::Marker::SPHERE_LIST, STYLE_SCATTER}; // SPHERE_LIST, POINTS, CUBE_LIST
         VisType TYPE_SPHERE = {"sphere", visualization_msgs::Marker::SPHERE_LIST, STYLE_SPHERE};
@@ -119,20 +119,18 @@ namespace ros_visualizer
         long long marker_group_ = 0;
         std::vector<std::pair<long long, long long>> marker_subid_list_; // Group | GroupSubID
 
-    public:
-        ROSVisualizer(ros::NodeHandle &nh);
-        ROSVisualizer(ros::NodeHandle &nh, std::string frame_id, std::string topic_name);
-        ~ROSVisualizer();
-
+        /**
+         * @brief Get the Id
+         *
+         * @param group_id
+         * @param sub_id
+         * @return long long
+         */
         long long getId(long long group_id, long long sub_id)
         {
             return group_id << group_shift_ | sub_id;
         };
-        void setIdGroup(long long group_id)
-        {
-            if (group_id > -1)
-                marker_group_ = group_id;
-        };
+
         /**
          * @brief Update Id
          *
@@ -167,6 +165,17 @@ namespace ros_visualizer
         {
             marker_group_ = 0;
             marker_subid_list_.clear();
+        };
+
+    public:
+        ROSVisualizer(ros::NodeHandle &nh);
+        ROSVisualizer(ros::NodeHandle &nh, std::string frame_id, std::string topic_name);
+        ~ROSVisualizer();
+
+        void setIdGroup(long long group_id)
+        {
+            if (group_id > -1)
+                marker_group_ = group_id;
         };
 
         void delGroup(long long group_id);
