@@ -76,7 +76,7 @@ namespace ros_visualizer
         }
     }
 
-    // FIXME: Sometimes it cant clear
+    // IMPORTANT: Sleep for a while after calling this function to ensure the markers are cleared
     void ROSVisualizer::delAll(void)
     {
         for (auto &marker : marker_array_.markers)
