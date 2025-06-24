@@ -205,18 +205,18 @@ namespace ros_visualizer
         {
             visSphere(sphere, config_.TYPE_SPHERE.style.x);
         }
-        void visSphere(const std::vector<Eigen::Vector3d> &shperes, double radius, const VisStyle &style);
-        void visSphere(const std::vector<Eigen::Vector3d> &shperes, double radius)
+        void visSphere(const std::vector<Eigen::Vector3d> &spheres, double radius, const VisStyle &style);
+        void visSphere(const std::vector<Eigen::Vector3d> &spheres, double radius)
         {
-            visSphere(shperes, radius, config_.TYPE_SPHERE.style);
+            visSphere(spheres, radius, config_.TYPE_SPHERE.style);
         }
         void visSphere(const std::vector<Eigen::Vector3d> &spheres, const VisStyle &style)
         {
             visSphere(spheres, style.x, style);
         }
-        void visSphere(const std::vector<Eigen::Vector3d> &shperes)
+        void visSphere(const std::vector<Eigen::Vector3d> &spheres)
         {
-            visSphere(shperes, config_.TYPE_SPHERE.style.x);
+            visSphere(spheres, config_.TYPE_SPHERE.style.x);
         }
         void delSphere(void);
 
