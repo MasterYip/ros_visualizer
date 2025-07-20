@@ -167,26 +167,46 @@ class ROSVisualizer:
     
     def del_group(self, group_id: int):
         """Delete all markers in a group"""
+        # First mark markers as DELETE and publish
+        for marker in self.marker_array.markers:
+            if (marker.id >> self.group_shift) == group_id:
+                marker.action = Marker.DELETE
+        
+        self._publish_markers()
+        
+        # Then remove from local array
         self.marker_array.markers = [
             marker for marker in self.marker_array.markers
             if (marker.id >> self.group_shift) != group_id
         ]
-        self._publish_markers()
     
     def del_type(self, vis_type: VisType):
         """Delete all markers of a specific type"""
+        # First mark markers as DELETE and publish
+        for marker in self.marker_array.markers:
+            if marker.ns == vis_type.name_space:
+                marker.action = Marker.DELETE
+        
+        self._publish_markers()
+        
+        # Then remove from local array
         self.marker_array.markers = [
             marker for marker in self.marker_array.markers
             if marker.ns != vis_type.name_space
         ]
-        self._publish_markers()
     
     def del_all(self):
         """Delete all markers"""
+        # First mark all markers as DELETE and publish
+        for marker in self.marker_array.markers:
+            marker.action = Marker.DELETE
+        
+        self._publish_markers()
+        
+        # Then clear local arrays
         self.marker_array.markers.clear()
         self.marker_subid_list.clear()
         self.marker_group = 0
-        self._publish_markers()
     
     def _publish_markers(self):
         """Publish marker array"""
