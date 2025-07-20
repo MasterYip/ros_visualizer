@@ -239,6 +239,15 @@ class ROSVisualizer:
         
         marker.points = [start_point, end_point]
         
+        # Update style properties
+        marker.scale.x = style.x
+        marker.scale.y = style.y
+        marker.scale.z = style.z
+        marker.color.r = style.r
+        marker.color.g = style.g
+        marker.color.b = style.b
+        marker.color.a = style.a
+        
         # Add to marker array
         self.marker_array.markers.append(marker)
         self._publish_markers()
@@ -265,6 +274,15 @@ class ROSVisualizer:
             points.append(p)
         
         marker.points = points
+        
+        # Update style properties
+        marker.scale.x = style.x
+        marker.scale.y = style.y
+        marker.scale.z = style.z
+        marker.color.r = style.r
+        marker.color.g = style.g
+        marker.color.b = style.b
+        marker.color.a = style.a
         
         # Add to marker array
         self.marker_array.markers.append(marker)
@@ -294,6 +312,15 @@ class ROSVisualizer:
         marker.scale.y = radius * 2
         marker.scale.z = radius * 2
         
+        # Update color properties
+        marker.color.r = style.r
+        marker.color.g = style.g
+        marker.color.b = style.b
+        marker.color.a = style.a
+        
+        # Add at least one point for SPHERE_LIST marker type (RViz requirement)
+        marker.points.append(Point())
+        
         # Add to marker array
         self.marker_array.markers.append(marker)
         self._publish_markers()
@@ -322,6 +349,12 @@ class ROSVisualizer:
         marker.scale.y = radius * 2
         marker.scale.z = radius * 2
         
+        # Update color properties
+        marker.color.r = style.r
+        marker.color.g = style.g
+        marker.color.b = style.b
+        marker.color.a = style.a
+        
         # Add to marker array
         self.marker_array.markers.append(marker)
         self._publish_markers()
@@ -348,6 +381,8 @@ class ROSVisualizer:
         marker.pose.orientation.x = quat[1]
         marker.pose.orientation.y = quat[2]
         marker.pose.orientation.z = quat[3]
+        
+        # Update style properties
         marker.scale.x = style.x
         marker.scale.y = style.y
         marker.scale.z = style.z
@@ -355,7 +390,10 @@ class ROSVisualizer:
         marker.color.g = style.g
         marker.color.b = style.b
         marker.color.a = style.a
+        
+        # Add at least one point for CUBE_LIST marker type (RViz requirement)
         marker.points.append(Point())
+        
         # Add to marker array
         self.marker_array.markers.append(marker)
         self._publish_markers()
@@ -385,6 +423,15 @@ class ROSVisualizer:
         marker.pose.orientation.y = quat[2]
         marker.pose.orientation.z = quat[3]
         
+        # Update style properties
+        marker.scale.x = style.x
+        marker.scale.y = style.y
+        marker.scale.z = style.z
+        marker.color.r = style.r
+        marker.color.g = style.g
+        marker.color.b = style.b
+        marker.color.a = style.a
+        
         # Add to marker array
         self.marker_array.markers.append(marker)
         self._publish_markers()
@@ -412,6 +459,15 @@ class ROSVisualizer:
         
         marker.points = points
         
+        # Update style properties
+        marker.scale.x = style.x
+        marker.scale.y = style.y
+        marker.scale.z = style.z
+        marker.color.r = style.r
+        marker.color.g = style.g
+        marker.color.b = style.b
+        marker.color.a = style.a
+        
         # Add to marker array
         self.marker_array.markers.append(marker)
         self._publish_markers()
@@ -435,6 +491,15 @@ class ROSVisualizer:
                 points.append(p)
         
         marker.points = points
+        
+        # Update style properties
+        marker.scale.x = style.x
+        marker.scale.y = style.y
+        marker.scale.z = style.z
+        marker.color.r = style.r
+        marker.color.g = style.g
+        marker.color.b = style.b
+        marker.color.a = style.a
         
         # Add to marker array
         self.marker_array.markers.append(marker)
@@ -463,6 +528,15 @@ class ROSVisualizer:
         
         marker.points = points
         
+        # Update style properties
+        marker.scale.x = style.x
+        marker.scale.y = style.y
+        marker.scale.z = style.z
+        marker.color.r = style.r
+        marker.color.g = style.g
+        marker.color.b = style.b
+        marker.color.a = style.a
+        
         # Add to marker array
         self.marker_array.markers.append(marker)
         self._publish_markers()
@@ -486,6 +560,15 @@ class ROSVisualizer:
                 points.append(p)
         
         marker.points = points
+        
+        # Update style properties
+        marker.scale.x = style.x
+        marker.scale.y = style.y
+        marker.scale.z = style.z
+        marker.color.r = style.r
+        marker.color.g = style.g
+        marker.color.b = style.b
+        marker.color.a = style.a
         
         # Add to marker array
         self.marker_array.markers.append(marker)
