@@ -397,10 +397,10 @@ class ROSVisualizer:
         marker.pose.position.x = cube[0]
         marker.pose.position.y = cube[1]
         marker.pose.position.z = cube[2]
-        marker.pose.orientation.w = quat[0]
-        marker.pose.orientation.x = quat[1]
-        marker.pose.orientation.y = quat[2]
-        marker.pose.orientation.z = quat[3]
+        marker.pose.orientation.w = quat[3]
+        marker.pose.orientation.x = quat[0]
+        marker.pose.orientation.y = quat[1]
+        marker.pose.orientation.z = quat[2]
         
         # Update style properties
         marker.scale.x = style.x
@@ -438,10 +438,10 @@ class ROSVisualizer:
             points.append(p)
         
         marker.points = points
-        marker.pose.orientation.w = quat[0]
-        marker.pose.orientation.x = quat[1]
-        marker.pose.orientation.y = quat[2]
-        marker.pose.orientation.z = quat[3]
+        marker.pose.orientation.w = quat[3]
+        marker.pose.orientation.x = quat[0]
+        marker.pose.orientation.y = quat[1]
+        marker.pose.orientation.z = quat[2]
         
         # Update style properties
         marker.scale.x = style.x
